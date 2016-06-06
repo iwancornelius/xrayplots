@@ -154,7 +154,7 @@ Maintenance mode disabled, site available.
 
 ### Configuring DNS settings
 
-Log in to cloudflare admin panel. Select DNS settings. Add CNAME record (in our case xrayblocks). Turn off cloudflare (ensure cloud is grey/arrow icon is grey).
+Log in to your cloudflare admin panel. Select DNS settings. Add CNAME record (in our case xrayplots). Turn off cloudflare (ensure cloud is grey/arrow icon is grey).
 
 From the project directory: Add a custom domain name to the heroku app.
 
