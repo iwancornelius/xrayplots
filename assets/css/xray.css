@@ -1,0 +1,160 @@
+html {
+  font-style: roboto;
+  font-size: small;
+}
+
+input {
+  text-align: center;
+}
+
+p, form, .header{
+  text-align:center;
+  vertical-align:middle;
+}
+
+td {
+  font-size: small;
+}
+
+th {
+  font-size: small;
+}
+
+li{
+  font-size: small;
+}
+
+img{
+      width:100%;
+      max-width:600px;
+}
+
+.linear_progress{
+  display: none;
+}
+
+.loader{
+ position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: white;
+}
+
+.signal {
+    border: 5px solid #333;
+    border-radius: 30px;
+    height: 30px;
+    left: 50%;
+    margin: -15px 0 0 -15px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulsate {
+    0% {
+      transform: scale(.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
+
+#controls{
+  padding-top: 20px;
+}
+
+.mobilelist li {
+  display: inline;
+}
+
+.mobilelist {
+  display: none;
+}
+
+.title {
+  text-align: center;
+}
+
+.chart {
+  width: 100%;
+}
+
+.li-material{
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: small;
+}
+
+.label-quantity{
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: small;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.legend line,
+.lines {
+  fill: none;
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+/*css rules for self-hosted materialise icons*/
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(font/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(font/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(font/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(font/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}

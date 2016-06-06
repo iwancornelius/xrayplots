@@ -1,0 +1,29 @@
+{
+  "name": "xray",
+  "description": "Single page web app to plot x-ray attenuation coefficients from NIST website.",
+  "main": "server.js",
+  "authors": [
+    "Iwan Cornelius"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#~0.97.3",
+    "d3": "~3.5.10",
+    "google-code-prettify": "~1.0.4",
+    "angular-touch": "~1.4.8",
+    "angular": "angularjs#~1.4.8",
+    "jquery": "~2.1.4"
+  }
+}

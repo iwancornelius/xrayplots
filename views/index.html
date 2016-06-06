@@ -1,0 +1,120 @@
+<!-- <!DOCTYPE html>-->
+<html lang="en"  ng-app="myApp" class="light-blue lighten-5">
+
+  <head>
+    <meta charset="utf-8">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/xray.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>xrayplots</title>
+
+  </head>
+<body>
+
+  <div class="loader">
+    <div class="signal"></div>
+  </div>
+
+  <div class="container" ng-controller="myCtrl">
+
+    <div class="row card-panel">
+      <div class="col s12 m12">
+        <h2 class="header">xrayplots</h2>
+        <p>Plotting and interactive inspection of X-Ray Mass Attenuation Coefficients
+          and Mass Energy-Absorption Coefficients from <a href="http://www.nist.gov/pml/data/xraycoef/index.cfm">NIST</a>.</p>
+          <p>Use our <a href="public/api.html">xrayAPI</a> to fetch JSON data directly from code.</p>
+        </div>
+      </div>
+
+      <div class="row card-panel controls">
+        <div class="col s12 center">
+          <span class="card-title">Inspect the data by entering an x-ray energy into the form, or by using the interactive chart. </span>
+          <br>
+          <table class="table material-table centered bordered striped">
+            <thead>
+              <tr>
+                <th colspan="3">Material</th>
+                <th colspan="1">Energy (MeV)</th>
+                <th >&#956/&#961 (cm<sup>2</sup>/g)</th>
+                <th>
+                  <input type="checkbox" id="vis_att" ng-model="plot_type_checkbox.plot_att" ng-click="draw_all();" />
+                  <label for="vis_att"></label>
+                </th>
+                <th>&#956/&#961<sub>en</sub> (cm<sup>2</sup>/g)</th>
+                <th>
+                  <input type="checkbox" id="vis_mass_en" ng-model="plot_type_checkbox.plot_mass_en" ng-click="draw_all();" />
+                  <label for="vis_mass_en"></label>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="datapoint-row" ng-repeat="material in datasets" style="color:{{material.color}}">
+                <td>{{material.name}}</td>
+                <td>
+                  <input type="checkbox" id="{{material.name}}" ng-model="material.show_plot" ng-click="draw_all()" />
+                  <label for="{{material.name}}"></label>
+                </td>
+                <td>
+                  <a href="#" ng-click="delete_material(material)">
+                    <i class="material-icons">delete</i>
+                  </a>
+                </td>
+                <td>
+                  <input size="5" type="text" ng-keypress="check_enter_key($event, material.e_state)" class="form-control" ng-model="material.e_state" />
+                </td>
+                <td colspan="2">{{material.a_state}}</td>
+                <td colspan="2">{{material.m_state}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- An alternative to drop-down is used for mobile devices -->
+        <div class="col s12 center" id="controls">
+          <div class="progress linear_progress">
+            <div class="indeterminate"></div>
+          </div>
+          <a class="waves-effect waves-light btn" ng-click="show_mobile_list();">
+            <i class="material-icons">add</i>
+          </a>
+          <!-- lay out all choices as small buttons ot avoid dropdown on mobile-->
+          <ul class="mobilelist">
+            <li ng-repeat="mat in nist_data">
+              <div class="chip">
+                <a href="#" ng-click="api_call(mat.name, mat.z);hide_mobile_list(); ">{{mat.z}} {{mat.name}} </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    <div class="row card-panel controls">
+      <div class="col s12 center">
+        <div id="chart"></div>
+      </div>
+    </div>
+
+    <div class="row card-panel controls " id="downloadcontrol">
+      <div class="col s12 center">
+        <a ng-href="{{download_link}}" class="waves-effect waves-light btn" ng-click="setup_download();" download="csv.txt">
+          <i class="material-icons left">system_update_alt</i>
+          Download data as CSV
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer text-center">
+    <div class="container">
+      <p class="text-muted">Brought to you by <a href="http://2mrd.com.au">2MRD</a></p>
+    </div>
+  </footer>
+
+  <script src="scripts/frontend.min.js"></script>
+</body>
+</html>

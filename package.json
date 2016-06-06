@@ -1,0 +1,37 @@
+{
+  "name": "xray",
+  "version": "0.1.0",
+  "description": "Single page web app to plot x-ray attenuation and mass energy absorption coefficients from NIST website.",
+  "main": "index.js",
+  "engines": {
+    "node": "0.10.29"
+  },
+  "scripts": {
+    "test": "echo \"Running with no tests\" && exit 1",
+    "start": "node server.js",
+    "postinstall": "bash ./postinstall.sh"
+  },
+  "author": "Iwan Cornelius",
+  "license": "ISC",
+  "dependencies": {
+    "HTTPRequest": "0.1.1",
+    "angular": "1.4.7",
+    "body-parser": "1.14.1",
+    "bower": "1.6.9",
+    "cached-request": "0.1.4",
+    "cheerio": "0.19.0",
+    "express": "4.13.3",
+    "grunt": "0.4.5",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-uglify": "0.11.0",
+    "grunt-contrib-concat": "0.5.1",
+    "jquery": "2.1.4",
+    "request": "2.67.0"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-concat": "0.5.1",
+    "grunt-contrib-jshint": "0.11.3"
+  }
+}
